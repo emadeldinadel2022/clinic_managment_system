@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.clinc_project.clinec_system.controllers.DashboardController"
+            style="-fx-background-color: #f5f7fa;">
+
+    <!-- Left Sidebar -->
+    <left>
+        <VBox fx:id="sidebarMenu" spacing="5" prefWidth="250"
+              style="-fx-background-color: #2c3e50; -fx-padding: 20;">
+
+            <!-- Logo/Brand -->
+            <VBox alignment="CENTER" spacing="5" style="-fx-padding: 0 0 20 0;">
+                <Label text="Admin Portal" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                <Separator prefWidth="200" style="-fx-background-color: #34495e;"/>
+            </VBox>
+
+            <!-- Navigation Buttons -->
+            <Button fx:id="analyticsBtn" text="📊 Analytics" maxWidth="Infinity" alignment="CENTER_LEFT"
+                    style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;">
+                <graphic>
+                    <Label text="📊" style="-fx-font-size: 18px;"/>
+                </graphic>
+            </Button>
+
+            <Button fx:id="uploadDataBtn" text="📤 Upload Data" maxWidth="Infinity" alignment="CENTER_LEFT"
+                    style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;">
+                <graphic>
+                    <Label text="📤" style="-fx-font-size: 18px;"/>
+                </graphic>
+            </Button>
+
+            <Button fx:id="customerDataBtn" text="👥 Customer Data" maxWidth="Infinity" alignment="CENTER_LEFT"
+                    style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;">
+                <graphic>
+                    <Label text="👥" style="-fx-font-size: 18px;"/>
+                </graphic>
+            </Button>
+
+            <Button fx:id="sendSMSBtn" text="💬 Send SMS" maxWidth="Infinity" alignment="CENTER_LEFT"
+                    style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;">
+                <graphic>
+                    <Label text="💬" style="-fx-font-size: 18px;"/>
+                </graphic>
+            </Button>
+
+            <Button fx:id="sendWhatsAppBtn" text="📱 WhatsApp" maxWidth="Infinity" alignment="CENTER_LEFT"
+                    style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;">
+                <graphic>
+                    <Label text="📱" style="-fx-font-size: 18px;"/>
+                </graphic>
+            </Button>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Separator prefWidth="200" style="-fx-background-color: #34495e;"/>
+
+            <Button fx:id="logoutBtn" text="🚪 Logout" maxWidth="Infinity" alignment="CENTER_LEFT"
+                    style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;">
+                <graphic>
+                    <Label text="🚪" style="-fx-font-size: 18px;"/>
+                </graphic>
+            </Button>
+        </VBox>
+    </left>
+
+    <!-- Main Content Area -->
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" style="-fx-background-color: transparent;">
+            <VBox spacing="20" style="-fx-padding: 30;">
+
+                <!-- Header -->
+                <HBox alignment="CENTER_LEFT" spacing="15">
+                    <Label text="Dashboard Overview" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="dateTimeLabel" text="Thursday, Oct 02, 2025" style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;"/>
+                </HBox>
+
+                <!-- Stats Cards -->
+                <GridPane hgap="20" vgap="20">
+                    <!-- Total Customers Card -->
+                    <VBox spacing="10" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);"
+                          GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <Label text="👥" style="-fx-font-size: 32px;"/>
+                            <VBox spacing="5">
+                                <Label text="Total Customers" style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;"/>
+                                <Label fx:id="totalCustomersLabel" text="1,234" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                            </VBox>
+                        </HBox>
+                        <Label text="+12% from last month" style="-fx-font-size: 12px; -fx-text-fill: #27ae60;"/>
+                    </VBox>
+
+                    <!-- Total Messages Card -->
+                    <VBox spacing="10" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);"
+                          GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <Label text="📨" style="-fx-font-size: 32px;"/>
+                            <VBox spacing="5">
+                                <Label text="Messages Sent" style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;"/>
+                                <Label fx:id="totalMessagesLabel" text="5,678" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                            </VBox>
+                        </HBox>
+                        <Label text="+8% from last month" style="-fx-font-size: 12px; -fx-text-fill: #27ae60;"/>
+                    </VBox>
+
+                    <!-- Success Rate Card -->
+                    <VBox spacing="10" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);"
+                          GridPane.columnIndex="2" GridPane.rowIndex="0">
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <Label text="✅" style="-fx-font-size: 32px;"/>
+                            <VBox spacing="5">
+                                <Label text="Success Rate" style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;"/>
+                                <Label fx:id="successRateLabel" text="94.5%" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                            </VBox>
+                        </HBox>
+                        <Label text="+2.3% from last month" style="-fx-font-size: 12px; -fx-text-fill: #27ae60;"/>
+                    </VBox>
+
+                    <!-- Pending Tasks Card -->
+                    <VBox spacing="10" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);"
+                          GridPane.columnIndex="3" GridPane.rowIndex="0">
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <Label text="⏳" style="-fx-font-size: 32px;"/>
+                            <VBox spacing="5">
+                                <Label text="Pending Tasks" style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;"/>
+                                <Label fx:id="pendingTasksLabel" text="23" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                            </VBox>
+                        </HBox>
+                        <Label text="Requires attention" style="-fx-font-size: 12px; -fx-text-fill: #e67e22;"/>
+                    </VBox>
+                </GridPane>
+
+                <!-- Charts Section -->
+                <GridPane hgap="20" vgap="20">
+                    <!-- Line Chart -->
+                    <VBox spacing="15" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);"
+                          GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2">
+                        <Label text="Message Activity (Last 7 Days)" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                        <LineChart fx:id="activityChart" prefHeight="300" legendVisible="true">
+                            <xAxis>
+                                <CategoryAxis label="Date"/>
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis label="Messages" side="LEFT"/>
+                            </yAxis>
+                        </LineChart>
+                    </VBox>
+
+                    <!-- Pie Chart -->
+                    <VBox spacing="15" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);"
+                          GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.columnSpan="2">
+                        <Label text="Message Distribution" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                        <PieChart fx:id="distributionChart" prefHeight="300" legendVisible="true"/>
+                    </VBox>
+                </GridPane>
+
+                <!-- Recent Activity Table -->
+                <VBox spacing="15" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                    <Label text="Recent Activity" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                    <TableView fx:id="recentActivityTable" prefHeight="250">
+                        <columns>
+                            <TableColumn text="Date" prefWidth="150"/>
+                            <TableColumn text="Type" prefWidth="120"/>
+                            <TableColumn text="Recipient" prefWidth="200"/>
+                            <TableColumn text="Status" prefWidth="120"/>
+                            <TableColumn text="Details" prefWidth="250"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

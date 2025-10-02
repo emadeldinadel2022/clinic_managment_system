@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.clinc_project.clinec_system.controllers.SendWhatsAppController"
+            style="-fx-background-color: #f5f7fa;">
+
+    <!-- Left Sidebar -->
+    <left>
+        <VBox fx:id="sidebarMenu" spacing="5" prefWidth="250"
+              style="-fx-background-color: #2c3e50; -fx-padding: 20;">
+            <!-- Same sidebar content -->
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+            <VBox spacing="25" style="-fx-padding: 30;">
+
+                <!-- Header -->
+                <VBox spacing="5">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label text="📱" style="-fx-font-size: 32px;"/>
+                        <Label text="Send WhatsApp Messages" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                    </HBox>
+                    <Label text="Send bulk WhatsApp messages with media attachments" style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;"/>
+                </VBox>
+
+                <!-- Main WhatsApp Form -->
+                <VBox spacing="25" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+
+                    <!-- Recipient Selection -->
+                    <VBox spacing="15">
+                        <Label text="1. Select Recipients" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+                        <HBox spacing="20">
+                            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                <Label text="Recipient Group" style="-fx-font-size: 13px; -fx-text-fill: #2c3e50;"/>
+                                <ComboBox fx:id="recipientTypeComboBox" maxWidth="Infinity" promptText="Select recipient group"
+                                          style="-fx-font-size: 13px; -fx-padding: 10;"/>
+                            </VBox>
+
+                            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                <Label text="Segment Filter" style="-fx-font-size: 13px; -fx-text-fill: #2c3e50;"/>
+                                <ComboBox fx:id="segmentFilterComboBox" maxWidth="Infinity" promptText="All segments"
+                                          style="-fx-font-size: 13px; -fx-padding: 10;"/>
+                            </VBox>
+                        </HBox>
+
+                        <!-- Custom Recipients -->
+                        <VBox spacing="5">
+                            <Label text="Or Enter WhatsApp Numbers (with country code)" style="-fx-font-size: 13px; -fx-text-fill: #2c3e50;"/>
+                            <TextArea fx:id="recipientListArea" prefRowCount="4" promptText="+1234567890&#10;+9876543210&#10;..."
+                                      style="-fx-padding: 10; -fx-background-radius: 6; -fx-border-color: #ddd; -fx-border-radius: 6;"/>
+                            <HBox spacing="15" alignment="CENTER_LEFT">
+                                <Label fx:id="recipientCountLabel" text="0 recipients selected" style="-fx-font-size: 12px; -fx-text-fill: #25D366; -fx-font-weight: bold;"/>
+                                <Button text="Import from File" style="-fx-background-color: #25D366; -fx-text-fill: white; -fx-padding: 5 15 5 15; -fx-background-radius: 5; -fx-cursor: hand;"/>
+                            </HBox>
+                        </VBox>
+                    </VBox>
+
+                    <Separator/>
+
+                    <!-- Message Composition -->
+                    <VBox spacing="15">
+                        <Label text="2. Compose Message" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+                        <HBox spacing="15">
+                            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                <Label text="Message Template" style="-fx-font-size: 13px; -fx-text-fill: #2c3e50;"/>
+                                <ComboBox fx:id="templateComboBox" maxWidth="Infinity" promptText="Choose a template"
+                                          style="-fx-font-size: 13px; -fx-padding: 10;"/>
+                            </VBox>
+
+                            <Button text="📋 Load Template" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 10 20 10 20; -fx-background-radius: 6; -fx-cursor: hand;">
+                                <VBox.margin>
+                                    <Insets top="20"/>
+                                </VBox.margin>
+                            </Button>
+
+                            <Button text="💾 Save Template" style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-padding: 10 20 10 20; -fx-background-radius: 6; -fx-cursor: hand;">
+                                <VBox.margin>
+                                    <Insets top="20"/>
+                                </VBox.margin>
+                            </Button>
+                        </HBox>
+
+                        <VBox spacing="5">
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <Label text="Message Content" style="-fx-font-size: 13px; -fx-text-fill: #2c3e50;"/>
+                                <Region HBox.hgrow="ALWAYS"/>
+                                <Label fx:id="charCountLabel" text="0/4096 characters" style="-fx-font-size: 12px; -fx-text-fill: #95a5a6;"/>
+                            </HBox>
+                            <TextArea fx:id="messageArea" prefRowCount="8" wrapText="true" promptText="Type your WhatsApp message here...&#10;&#10;Supports: *bold*, _italic_, ~strikethrough~"
+                                      style="-fx-padding: 12; -fx-font-size: 13px; -fx-background-radius: 6; -fx-border-color: #ddd; -fx-border-radius: 6;"/>
+                            <HBox spacing="10">
+                                <Button text="😊 Emoji" style="-fx-background-color: transparent; -fx-text-fill: #3498db; -fx-cursor: hand;"/>
+                                <Button text="📎 Variables" style="-fx-background-color: transparent; -fx-text-fill: #3498db; -fx-cursor: hand;"/>
+                                <Label text="Variables: {name}, {phone}, {company}, {custom1}" style="-fx-font-size: 11px; -fx-text-fill: #95a5a6;">
+                                    <HBox.margin>
+                                        <Insets left="10"/>
+                                    </HBox.margin>
+                                </Label>
+                            </HBox>
+                        </VBox>
+                    </VBox>
+
+                    <Separator/>
+
+                    <!-- Media Attachment -->
+                    <VBox spacing="15">
+                        <Label text="3. Add Media (Optional)" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+                        <HBox spacing="15" alignment="CENTER_LEFT">
+                            <CheckBox fx:id="includeMediaCheckBox" text="Include Media Attachment" style="-fx-font-size: 13px;"/>
+                        </HBox>
+
+                        <VBox spacing="10" fx:id="mediaBox" disable="true">
+                            <HBox spacing="15">
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <Label text="Media Type" style="-fx-font-size: 13px; -fx-text-fill: #2c3e50;"/>
+                                    <ComboBox fx:id="mediaTypeComboBox" maxWidth="Infinity" promptText="Select media type"
+                                              style="-fx-font-size: 13px; -fx-padding: 10;"/>
+                                </VBox>
+
+                                <Button fx:id="selectMediaBtn" text="📁 Select File" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 10 20 10 20; -fx-background-radius: 6; -fx-cursor: hand;">
+                                    <VBox.margin>
+                                        <Insets top="20"/>
+                                    </VBox.margin>
+                                </Button>
+                            </HBox>
+
+                            <!-- Media Preview -->
+                            <HBox spacing="15" fx:id="mediaPreviewBox" visible="false" managed="false" alignment="CENTER_LEFT"
+                                  style="-fx-background-color: #f8f9fa; -fx-padding: 15; -fx-background-radius: 6;">
+                                <Label text="📄" style="-fx-font-size: 32px;"/>
+                                <VBox spacing="3" HBox.hgrow="ALWAYS">
+                                    <Label fx:id="mediaFileNameLabel" text="image.jpg" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                                    <Label fx:id="mediaFileSizeLabel" text="2.5 MB" style="-fx-font-size: 11px; -fx-text-fill: #7f8c8d;"/>
+                                </VBox>
+                                <Button text="✕" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-padding: 5 10 5 10; -fx-background-radius: 5; -fx-cursor: hand;"/>
+                            </HBox>
+
+                            <Label text="Supported: Images (JPG, PNG), Videos (MP4), Documents (PDF), Audio (MP3)" style="-fx-font-size: 11px; -fx-text-fill: #95a5a6;"/>
+                        </VBox>
+                    </VBox>
+
+                    <Separator/>
+
+                    <!-- WhatsApp Preview -->
+                    <VBox spacing="15">
+                        <Label text="4. Message Preview" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+                        <!-- WhatsApp-style Preview -->
+                        <VBox spacing="10" style="-fx-background-color: #E5DDD5; -fx-padding: 20; -fx-background-radius: 8;">
+                            <Label text="Preview (as it will appear on WhatsApp)" style="-fx-font-size: 11px; -fx-text-fill: #666;"/>
+                            <VBox spacing="5" style="-fx-background-color: white; -fx-padding: 12; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);" maxWidth="400">
+                                <HBox spacing="10" alignment="CENTER_LEFT">
+                                    <Label text="👤" style="-fx-font-size: 24px;"/>
+                                    <VBox spacing="2">
+                                        <Label text="Your Business Name" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #000;"/>
+                                        <Label text="Business Account" style="-fx-font-size: 11px; -fx-text-fill: #25D366;"/>
+                                    </VBox>
+                                </HBox>
+                                <Separator/>
+                                <Label fx:id="messagePreviewLabel" text="Your message will appear here..." wrapText="true"
+                                       style="-fx-font-size: 13px; -fx-text-fill: #303030;"/>
+                                <HBox alignment="CENTER_RIGHT" spacing="5">
+                                    <Label text="10:30 AM" style="-fx-font-size: 11px; -fx-text-fill: #999;"/>
+                                    <Label text="✓✓" style="-fx-font-size: 11px; -fx-text-fill: #4FC3F7;"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+
+                    <Separator/>
+
+                    <!-- Scheduling Options -->
+                    <VBox spacing="15">
+                        <Label text="5. Schedule Delivery" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+                        <HBox spacing="15" alignment="CENTER_LEFT">
+                            <RadioButton fx:id="sendNowRadio" text="Send Immediately" selected="true" style="-fx-font-size: 13px;"/>
+                            <RadioButton fx:id="scheduleRadio" text="Schedule for Later" style="-fx-font-size: 13px;"/>
+                        </HBox>
+
+                        <HBox spacing="20" fx:id="scheduleBox" disable="true">
+                            <VBox spacing="5">
+                                <Label text="Date" style="-fx-font-size: 13px; -fx-text-fill: #2c3e50;"/>
+                                <DatePicker fx:id="scheduleDatePicker" prefWidth="200" style="-fx-font-size: 13px;"/>
+                            </VBox>
+
+                            <VBox spacing="5">
+                                <Label text="Time" style="-fx-font-size: 13px; -fx-text-fill: #2c3e50;"/>
+                                <TextField fx:id="scheduleTimeField" promptText="HH:MM" prefWidth="120"
+                                           style="-fx-padding: 8; -fx-background-radius: 6; -fx-border-color: #ddd; -fx-border-radius: 6;"/>
+                            </VBox>
+
+                            <VBox spacing="5">
+                                <Label text="Timezone" style="-fx-font-size: 13px; -fx-text-fill: #2c3e50;"/>
+                                <ComboBox fx:id="timezoneComboBox" prefWidth="200" style="-fx-font-size: 13px;"/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+
+                    <!-- Advanced Options -->
+                    <VBox spacing="10">
+                        <Label text="Advanced Options" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                        <CheckBox text="Send test message to my number first" style="-fx-font-size: 12px;"/>
+                        <CheckBox text="Enable delivery reports" selected="true" style="-fx-font-size: 12px;"/>
+                        <CheckBox text="Respect opt-out preferences" selected="true" style="-fx-font-size: 12px;"/>
+                    </VBox>
+
+                    <!-- Progress and Status -->
+                    <VBox spacing="10" fx:id="progressBox" visible="false" managed="false">
+                        <Label text="Sending WhatsApp Messages..." style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                        <ProgressBar fx:id="progressBar" progress="0" prefWidth="Infinity" prefHeight="20"
+                                     style="-fx-accent: #25D366;"/>
+                        <Label fx:id="progressLabel" text="0 of 0 sent" style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;"/>
+                    </VBox>
+
+                    <Label fx:id="statusLabel" wrapText="true" style="-fx-font-size: 13px;"/>
+
+                    <!-- Action Buttons -->
+                    <HBox spacing="15" alignment="CENTER_RIGHT">
+                        <Button text="🧪 Send Test" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-font-size: 13px; -fx-padding: 12 25 12 25; -fx-background-radius: 6; -fx-cursor: hand;"/>
+                        <Button text="💾 Save Draft" style="-fx-background-color: #ecf0f1; -fx-text-fill: #2c3e50; -fx-font-size: 13px; -fx-padding: 12 25 12 25; -fx-background-radius: 6; -fx-cursor: hand;"/>
+                        <Button fx:id="sendBtn" text="📱 Send WhatsApp" style="-fx-background-color: #25D366; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 12 30 12 30; -fx-background-radius: 6; -fx-cursor: hand;"/>
+                    </HBox>
+                </VBox>
+
+                <!-- WhatsApp Statistics -->
+                <GridPane hgap="15" vgap="15">
+                    <VBox spacing="10" alignment="CENTER" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);"
+                          GridPane.columnIndex="0">
+                        <Label text="📤" style="-fx-font-size: 32px;"/>
+                        <Label text="Total Sent" style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;"/>
+                        <Label text="8,921" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                    </VBox>
+
+                    <VBox spacing="10" alignment="CENTER" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);"
+                          GridPane.columnIndex="1">
+                        <Label text="✅" style="-fx-font-size: 32px;"/>
+                        <Label text="Delivered" style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;"/>
+                        <Label text="8,645" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #25D366;"/>
+                    </VBox>
+
+                    <VBox spacing="10" alignment="CENTER" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);"
+                          GridPane.columnIndex="2">
+                        <Label text="👁️" style="-fx-font-size: 32px;"/>
+                        <Label text="Read" style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;"/>
+                        <Label text="7,234" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #3498db;"/>
+                    </VBox>
+
+                    <VBox spacing="10" alignment="CENTER" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);"
+                          GridPane.columnIndex="3">
+                        <Label text="↩️" style="-fx-font-size: 32px;"/>
+                        <Label text="Replied" style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;"/>
+                        <Label text="1,456" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #9b59b6;"/>
+                    </VBox>
+                </GridPane>
+
+                <!-- Recent WhatsApp Campaigns -->
+                <VBox spacing="15" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                    <HBox alignment="CENTER_LEFT" spacing="15">
+                        <Label text="Recent WhatsApp Campaigns" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button text="📊 View Reports" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 8 20 8 20; -fx-background-radius: 6; -fx-cursor: hand;"/>
+                    </HBox>
+
+                    <TableView fx:id="whatsappHistoryTable" prefHeight="250">
+                        <columns>
+                            <TableColumn text="Date" prefWidth="140"/>
+                            <TableColumn text="Campaign Name" prefWidth="180"/>
+                            <TableColumn text="Recipients" prefWidth="100"/>
+                            <TableColumn text="Delivered" prefWidth="100"/>
+                            <TableColumn text="Read" prefWidth="100"/>
+                            <TableColumn text="Replied" prefWidth="100"/>
+                            <TableColumn text="Status" prefWidth="100"/>
+                            <TableColumn text="Actions" prefWidth="150"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

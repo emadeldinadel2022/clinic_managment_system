@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.clinc_project.clinec_system.controllers.LoginController"
+           style="-fx-background-color: linear-gradient(to bottom right, #667eea 0%, #764ba2 100%);">
+
+    <VBox alignment="CENTER" spacing="20" maxWidth="400" maxHeight="500"
+          style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 20, 0, 0, 5);">
+        <padding>
+            <Insets top="40" right="40" bottom="40" left="40"/>
+        </padding>
+
+        <!-- Logo/Title -->
+        <VBox alignment="CENTER" spacing="10">
+            <Label text="Admin Portal" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #667eea;"/>
+            <Label text="Sign in to continue" style="-fx-font-size: 14px; -fx-text-fill: #888;"/>
+        </VBox>
+
+        <!-- Login Form -->
+        <VBox spacing="15" VBox.vgrow="ALWAYS">
+            <VBox spacing="5">
+                <Label text="Username" style="-fx-font-size: 13px; -fx-text-fill: #333;"/>
+                <TextField fx:id="usernameField" promptText="Enter your username"
+                           style="-fx-padding: 12; -fx-background-radius: 8; -fx-border-color: #ddd; -fx-border-radius: 8;"/>
+            </VBox>
+
+            <VBox spacing="5">
+                <Label text="Password" style="-fx-font-size: 13px; -fx-text-fill: #333;"/>
+                <PasswordField fx:id="passwordField" promptText="Enter your password"
+                               style="-fx-padding: 12; -fx-background-radius: 8; -fx-border-color: #ddd; -fx-border-radius: 8;"/>
+            </VBox>
+
+            <Label fx:id="errorLabel" textFill="red" wrapText="true" style="-fx-font-size: 12px;"/>
+
+            <Button fx:id="loginButton" text="Sign In" maxWidth="Infinity"
+                    style="-fx-background-color: #667eea; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 12; -fx-background-radius: 8; -fx-cursor: hand;">
+                <VBox.margin>
+                    <Insets top="10"/>
+                </VBox.margin>
+            </Button>
+        </VBox>
+
+        <!-- Links -->
+        <HBox spacing="10" alignment="CENTER">
+            <Button fx:id="resetPasswordButton" text="Forgot Password?"
+                    style="-fx-background-color: transparent; -fx-text-fill: #667eea; -fx-underline: true; -fx-cursor: hand;"/>
+            <Label text="|" style="-fx-text-fill: #ddd;"/>
+            <Button fx:id="signupButton" text="Create Account"
+                    style="-fx-background-color: transparent; -fx-text-fill: #667eea; -fx-underline: true; -fx-cursor: hand;"/>
+        </HBox>
+    </VBox>
+</StackPane>
