@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.clinic_project.clinic_system.presentation_layer.controllers.customer.UploadDataController"
+            style="-fx-background-color: #f5f7fa;">
+
+    <!-- Left Sidebar (Same as Dashboard) -->
+    <left>
+        <VBox fx:id="sidebarMenu" spacing="5" prefWidth="250"
+              style="-fx-background-color: #2c3e50; -fx-padding: 20;">
+
+            <!-- Logo/Brand -->
+            <VBox alignment="CENTER" spacing="5" style="-fx-padding: 0 0 20 0;">
+                <Label text="Admin Portal" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                <Separator prefWidth="200" style="-fx-background-color: #34495e;"/>
+            </VBox>
+
+            <!-- Navigation Buttons -->
+            <Button fx:id="analyticsBtn" text="📊 Analytics" maxWidth="Infinity" alignment="CENTER_LEFT"
+                    style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;"/>
+
+            <Button fx:id="uploadDataBtn" text="📤 Upload Data" maxWidth="Infinity" alignment="CENTER_LEFT"
+                    style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;"/>
+
+            <Button fx:id="customerDataBtn" text="👥 Customer Data" maxWidth="Infinity" alignment="CENTER_LEFT"
+                    style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;"/>
+
+            <Button fx:id="sendSMSBtn" text="💬 Send SMS" maxWidth="Infinity" alignment="CENTER_LEFT"
+                    style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;"/>
+
+            <Button fx:id="sendWhatsAppBtn" text="📱 WhatsApp" maxWidth="Infinity" alignment="CENTER_LEFT"
+                    style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Separator prefWidth="200" style="-fx-background-color: #34495e;"/>
+
+            <Button fx:id="logoutBtn" text="🚪 Logout" maxWidth="Infinity" alignment="CENTER_LEFT"
+                    style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;"/>
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+            <VBox spacing="25" style="-fx-padding: 30;">
+
+                <!-- Header -->
+                <VBox spacing="5">
+                    <Label text="Upload Data" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                    <Label text="Import data from Excel files to your database" style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;"/>
+                </VBox>
+
+                <!-- Main Upload Card -->
+                <VBox spacing="25" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 35; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+
+                    <!-- Data Type Selection -->
+                    <VBox spacing="10">
+                        <Label text="Select Data Type" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                        <ComboBox fx:id="dataTypeComboBox" prefWidth="400" promptText="Choose data type"
+                                  style="-fx-font-size: 14px; -fx-padding: 10;"/>
+                        <Label text="Select the type of data you want to upload" style="-fx-font-size: 12px; -fx-text-fill: #95a5a6;"/>
+                    </VBox>
+
+                    <Separator/>
+
+                    <!-- File Selection Area -->
+                    <VBox spacing="20" alignment="CENTER" style="-fx-border-color: #3498db; -fx-border-width: 2; -fx-border-style: dashed; -fx-border-radius: 10; -fx-background-color: #ecf0f1; -fx-background-radius: 10; -fx-padding: 40;">
+                        <Label text="📁" style="-fx-font-size: 64px;"/>
+                        <Label text="Drag and drop your Excel file here" style="-fx-font-size: 16px; -fx-text-fill: #34495e;"/>
+                        <Label text="or" style="-fx-font-size: 14px; -fx-text-fill: #95a5a6;"/>
+                        <Button fx:id="selectFileBtn" text="Browse Files"
+                                style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 12 30 12 30; -fx-background-radius: 8; -fx-cursor: hand;"/>
+                        <Label text="Supported formats: .xlsx, .xls" style="-fx-font-size: 12px; -fx-text-fill: #95a5a6;"/>
+                    </VBox>
+
+                    <!-- Selected File Info -->
+                    <VBox spacing="10" fx:id="fileInfoBox" visible="false" managed="false">
+                        <Label text="Selected File:" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                        <HBox spacing="15" alignment="CENTER_LEFT" style="-fx-background-color: #e8f5e9; -fx-padding: 15; -fx-background-radius: 8;">
+                            <Label text="📄" style="-fx-font-size: 24px;"/>
+                            <VBox spacing="3" HBox.hgrow="ALWAYS">
+                                <Label fx:id="fileNameLabel" text="customers_data.xlsx" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                                <Label fx:id="filePathLabel" text="/Users/documents/data.xlsx" style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;"/>
+                            </VBox>
+                            <Button text="✕" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 5 10 5 10; -fx-background-radius: 5; -fx-cursor: hand;"/>
+                        </HBox>
+                    </VBox>
+
+                    <!-- Data Preview Section -->
+                    <VBox spacing="10" fx:id="previewBox" visible="false" managed="false">
+                        <Label text="Data Preview" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                        <TableView fx:id="previewTable" prefHeight="200">
+                            <placeholder>
+                                <Label text="No data to preview" style="-fx-text-fill: #95a5a6;"/>
+                            </placeholder>
+                        </TableView>
+                        <Label fx:id="rowCountLabel" text="Showing first 10 rows of 1,234 total rows" style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;"/>
+                    </VBox>
+
+                    <Separator/>
+
+                    <!-- Upload Options -->
+                    <VBox spacing="15">
+                        <Label text="Upload Options" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                        <CheckBox fx:id="replaceExistingCheckbox" text="Replace existing data" style="-fx-font-size: 13px;"/>
+                        <CheckBox fx:id="validateDataCheckbox" text="Validate data before upload" selected="true" style="-fx-font-size: 13px;"/>
+                    </VBox>
+
+                    <!-- Status Message -->
+                    <Label fx:id="statusLabel" wrapText="true" style="-fx-font-size: 13px;"/>
+
+                    <!-- Progress Bar -->
+                    <ProgressBar fx:id="uploadProgressBar" progress="0" prefWidth="Infinity" visible="false" managed="false"/>
+
+                    <!-- Action Buttons -->
+                    <HBox spacing="15" alignment="CENTER_RIGHT">
+                        <Button fx:id="cancelBtn" text="Cancel"
+                                style="-fx-background-color: #ecf0f1; -fx-text-fill: #2c3e50; -fx-font-size: 14px; -fx-padding: 12 30 12 30; -fx-background-radius: 8; -fx-cursor: hand;"/>
+                        <Button fx:id="uploadBtn" text="Upload Data"
+                                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 12 30 12 30; -fx-background-radius: 8; -fx-cursor: hand;"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Upload History -->
+                <VBox spacing="15" style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                    <Label text="Recent Uploads" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                    <TableView fx:id="uploadHistoryTable" prefHeight="200">
+                        <columns>
+                            <TableColumn text="Date" prefWidth="150"/>
+                            <TableColumn text="File Name" prefWidth="200"/>
+                            <TableColumn text="Data Type" prefWidth="150"/>
+                            <TableColumn text="Records" prefWidth="100"/>
+                            <TableColumn text="Status" prefWidth="120"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

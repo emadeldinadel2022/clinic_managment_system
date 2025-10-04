@@ -11,7 +11,14 @@ module com.clinc_project.clinec_system {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
-    opens com.clinic_project.clinic_system.controllers to javafx.fxml;
+    opens com.clinic_project.clinic_system.presentation_layer.controllers to javafx.fxml;
     exports com.clinic_project.clinic_system;
-    exports com.clinic_project.clinic_system.controllers;
+    exports com.clinic_project.clinic_system.presentation_layer.controllers.customer;
+    opens com.clinic_project.clinic_system.presentation_layer.controllers.customer to javafx.fxml;
+    exports com.clinic_project.clinic_system.presentation_layer.controllers.auth;
+    opens com.clinic_project.clinic_system.presentation_layer.controllers.auth to javafx.fxml;
+    exports com.clinic_project.clinic_system.presentation_layer.controllers.general;
+    opens com.clinic_project.clinic_system.presentation_layer.controllers.general to javafx.fxml;
+    exports com.clinic_project.clinic_system.presentation_layer.controllers.messaging;
+    opens com.clinic_project.clinic_system.presentation_layer.controllers.messaging to javafx.fxml;
 }

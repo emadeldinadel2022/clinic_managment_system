@@ -2,7 +2,7 @@ package com.clinic_project.clinic_system;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import com.clinic_project.clinic_system.utils.SceneManager;
+import com.clinic_project.clinic_system.presentation_layer.utils.SceneManager;
 
 public class Launcher extends Application{
 
