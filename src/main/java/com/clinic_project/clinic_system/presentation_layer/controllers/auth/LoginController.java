@@ -28,18 +28,18 @@ public class LoginController {
         String password = passwordField.getText();
 
         if (authenticate(username, password)) {
-            SceneManager.getInstance().switchScene("Dashboard");
+            SceneManager.getInstance().switchScene("dashboard/Dashboard");
         } else {
             errorLabel.setText("Invalid credentials");
         }
     }
 
     private void handleSignup() {
-        SceneManager.getInstance().switchScene("Signup");
+        SceneManager.getInstance().switchScene("auth/Signup");
     }
 
     private void handleResetPassword() {
-        SceneManager.getInstance().switchScene("ResetPassword");
+        SceneManager.getInstance().switchScene("auth/ResetPassword");
     }
 
     private boolean authenticate(String username, String password) {

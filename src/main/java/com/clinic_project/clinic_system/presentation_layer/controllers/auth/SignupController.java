@@ -134,7 +134,7 @@ public class SignupController {
     }
 
     private void handleBackToLogin() {
-        SceneManager.getInstance().switchScene("Login");
+        SceneManager.getInstance().switchScene("auth/Login");
     }
 
     private boolean isValidEmail(String email) {

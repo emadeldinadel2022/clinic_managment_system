@@ -24,19 +24,19 @@ public abstract class BaseController {
     protected void setupSidebar() {
         // Only setup buttons that exist in the FXML
         if (analyticsBtn != null) {
-            analyticsBtn.setOnAction(e -> navigateTo("Dashboard"));
+            analyticsBtn.setOnAction(e -> navigateTo("dashboard/Dashboard"));
         }
         if (uploadDataBtn != null) {
-            uploadDataBtn.setOnAction(e -> navigateTo("UploadData"));
+            uploadDataBtn.setOnAction(e -> navigateTo("customer/UploadData"));
         }
         if (customerDataBtn != null) {
-            customerDataBtn.setOnAction(e -> navigateTo("CustomerData"));
+            customerDataBtn.setOnAction(e -> navigateTo("customer/CustomerData"));
         }
         if (sendSMSBtn != null) {
-            sendSMSBtn.setOnAction(e -> navigateTo("SendSMS"));
+            sendSMSBtn.setOnAction(e -> navigateTo("messaging/SendSMS"));
         }
         if (sendWhatsAppBtn != null) {
-            sendWhatsAppBtn.setOnAction(e -> navigateTo("SendWhatsApp"));
+            sendWhatsAppBtn.setOnAction(e -> navigateTo("messaging/SendWhatsApp"));
         }
         if (logoutBtn != null) {
             logoutBtn.setOnAction(e -> handleLogout());
@@ -51,7 +51,7 @@ public abstract class BaseController {
     }
 
     protected void handleLogout() {
-        SceneManager.getInstance().switchScene("Login");
+        SceneManager.getInstance().switchScene("auth/Login");
     }
 
     protected void highlightCurrentPage() {

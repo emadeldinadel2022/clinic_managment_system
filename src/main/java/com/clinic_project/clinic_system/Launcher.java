@@ -9,7 +9,7 @@ public class Launcher extends Application{
     @Override
     public void start(Stage primaryStage) {
         SceneManager.getInstance().setPrimaryStage(primaryStage);
-        SceneManager.getInstance().switchScene("Login");
+        SceneManager.getInstance().switchScene("auth/Login");
 
         primaryStage.setTitle("Clinic Management System");
         primaryStage.setWidth(1200);
