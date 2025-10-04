@@ -11,7 +11,7 @@ module com.clinc_project.clinec_system {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
-    opens com.clinc_project.clinec_system.controllers to javafx.fxml;
-    exports com.clinc_project.clinec_system;
-    exports com.clinc_project.clinec_system.controllers;
+    opens com.clinic_project.clinic_system.controllers to javafx.fxml;
+    exports com.clinic_project.clinic_system;
+    exports com.clinic_project.clinic_system.controllers;
 }

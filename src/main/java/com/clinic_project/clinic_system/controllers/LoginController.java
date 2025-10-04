@@ -1,11 +1,11 @@
-package com.clinc_project.clinec_system.controllers;
+package com.clinic_project.clinic_system.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import com.clinc_project.clinec_system.utils.SceneManager;
+import com.clinic_project.clinic_system.utils.SceneManager;
 
 public class LoginController {
 
@@ -27,7 +27,6 @@ public class LoginController {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        // Add authentication logic here
         if (authenticate(username, password)) {
             SceneManager.getInstance().switchScene("Dashboard");
         } else {
@@ -44,7 +43,6 @@ public class LoginController {
     }
 
     private boolean authenticate(String username, String password) {
-        // Implement authentication logic
-        return true; // Placeholder
+        return true;
     }
 }

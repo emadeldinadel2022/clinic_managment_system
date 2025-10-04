@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 
 <StackPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="com.clinc_project.clinec_system.controllers.SignupController"
+           fx:controller="com.clinic_project.clinic_system.controllers.SignupController"
            style="-fx-background-color: linear-gradient(to bottom right, #667eea 0%, #764ba2 100%);">
 
     <VBox alignment="CENTER" spacing="15" maxWidth="450" maxHeight="600"

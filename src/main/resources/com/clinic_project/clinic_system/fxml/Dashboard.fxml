@@ -6,7 +6,7 @@
 <?import javafx.scene.chart.*?>
 
 <BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.clinc_project.clinec_system.controllers.DashboardController"
+            fx:controller="com.clinic_project.clinic_system.controllers.DashboardController"
             style="-fx-background-color: #f5f7fa;">
 
     <!-- Left Sidebar -->
@@ -22,50 +22,26 @@
 
             <!-- Navigation Buttons -->
             <Button fx:id="analyticsBtn" text="📊 Analytics" maxWidth="Infinity" alignment="CENTER_LEFT"
-                    style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;">
-                <graphic>
-                    <Label text="📊" style="-fx-font-size: 18px;"/>
-                </graphic>
-            </Button>
+                    style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;"/>
 
             <Button fx:id="uploadDataBtn" text="📤 Upload Data" maxWidth="Infinity" alignment="CENTER_LEFT"
-                    style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;">
-                <graphic>
-                    <Label text="📤" style="-fx-font-size: 18px;"/>
-                </graphic>
-            </Button>
+                    style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;"/>
 
             <Button fx:id="customerDataBtn" text="👥 Customer Data" maxWidth="Infinity" alignment="CENTER_LEFT"
-                    style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;">
-                <graphic>
-                    <Label text="👥" style="-fx-font-size: 18px;"/>
-                </graphic>
-            </Button>
+                    style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;"/>
 
             <Button fx:id="sendSMSBtn" text="💬 Send SMS" maxWidth="Infinity" alignment="CENTER_LEFT"
-                    style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;">
-                <graphic>
-                    <Label text="💬" style="-fx-font-size: 18px;"/>
-                </graphic>
-            </Button>
+                    style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;"/>
 
             <Button fx:id="sendWhatsAppBtn" text="📱 WhatsApp" maxWidth="Infinity" alignment="CENTER_LEFT"
-                    style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;">
-                <graphic>
-                    <Label text="📱" style="-fx-font-size: 18px;"/>
-                </graphic>
-            </Button>
+                    style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;"/>
 
             <Region VBox.vgrow="ALWAYS"/>
 
             <Separator prefWidth="200" style="-fx-background-color: #34495e;"/>
 
             <Button fx:id="logoutBtn" text="🚪 Logout" maxWidth="Infinity" alignment="CENTER_LEFT"
-                    style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;">
-                <graphic>
-                    <Label text="🚪" style="-fx-font-size: 18px;"/>
-                </graphic>
-            </Button>
+                    style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 15; -fx-background-radius: 8; -fx-cursor: hand;"/>
         </VBox>
     </left>
 

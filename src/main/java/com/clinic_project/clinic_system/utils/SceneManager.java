@@ -1,4 +1,4 @@
-package com.clinc_project.clinec_system.utils;
+package com.clinic_project.clinic_system.utils;
 
 
 import javafx.fxml.FXMLLoader;
@@ -27,7 +27,7 @@ public class SceneManager {
     public void switchScene(String fxmlName) {
         try {
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/com/clinc_project/clinec_system/fxml/" + fxmlName + ".fxml")
+                    getClass().getResource("/com/clinic_project/clinic_system/fxml/" + fxmlName + ".fxml")
             );
             Parent root = loader.load();
             Scene scene = new Scene(root);

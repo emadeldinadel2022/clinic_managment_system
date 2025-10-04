@@ -1,8 +1,8 @@
-package com.clinc_project.clinec_system;
+package com.clinic_project.clinic_system;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import com.clinc_project.clinec_system.utils.SceneManager;
+import com.clinic_project.clinic_system.utils.SceneManager;
 
 public class Launcher extends Application{
 
@@ -11,7 +11,7 @@ public class Launcher extends Application{
         SceneManager.getInstance().setPrimaryStage(primaryStage);
         SceneManager.getInstance().switchScene("Login");
 
-        primaryStage.setTitle("Admin Management System");
+        primaryStage.setTitle("Clinic Management System");
         primaryStage.setWidth(1200);
         primaryStage.setHeight(800);
         primaryStage.show();
