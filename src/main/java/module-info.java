@@ -10,6 +10,8 @@ module com.clinic_project.clinic_system {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires org.apache.poi.ooxml;
+    requires org.apache.pdfbox;
 
     exports com.clinic_project.clinic_system;
 
