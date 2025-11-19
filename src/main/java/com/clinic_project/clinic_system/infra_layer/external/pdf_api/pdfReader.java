@@ -1,6 +1,7 @@
 package com.clinic_project.clinic_system.infra_layer.external.pdf_api;
 
 
+import com.clinic_project.clinic_system.business_layer.validators.PhoneNumberValidator;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.text.PDFTextStripper;
@@ -160,7 +161,8 @@ import java.util.regex.Pattern;
             Pattern phonePattern = Pattern.compile("01[0-9]{9}");
             Matcher matcher = phonePattern.matcher(line);
             if (matcher.find()) {
-                return matcher.group();
+                PhoneNumberValidator phonevalidator = new PhoneNumberValidator();
+                return phonevalidator.validator(matcher.group());
             }
             return "";
         }

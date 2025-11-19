@@ -123,6 +123,12 @@
             <artifactId>pdfbox</artifactId>
             <version>3.0.6</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.twilio.sdk/twilio -->
+        <dependency>
+            <groupId>com.twilio.sdk</groupId>
+            <artifactId>twilio</artifactId>
+            <version>11.0.2</version>
+        </dependency>
     </dependencies>
 
     <build>

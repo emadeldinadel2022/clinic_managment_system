@@ -1,11 +1,13 @@
 package com.clinic_project.clinic_system.infra_layer.external.excel_api;
 
+import com.clinic_project.clinic_system.business_layer.validators.PhoneNumberValidator;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 
 import java.io.IOException;
 
@@ -21,10 +23,10 @@ public class ExcelReader {
                 int rowcount = sheet.getPhysicalNumberOfRows();
                 for(int rowNumber =1; rowNumber<rowcount; rowNumber++){
                     Row row = sheet.getRow(rowNumber);
-
+                     PhoneNumberValidator phonevalidator = new PhoneNumberValidator();
                     if(row != null && row.getCell(3) != null){
                     String name = getCellValueAsString(row.getCell(0));
-                    String mobileNumber = getCellValueAsString(row.getCell(3));
+                    String mobileNumber = phonevalidator.validator(getCellValueAsString(row.getCell(3)));
                     String insurance = getCellValueAsString(row.getCell(2));
                     String branch = getCellValueAsString(row.getCell(1));
                     System.out.println(name+ ","+mobileNumber+","+insurance+","+branch);

@@ -12,6 +12,7 @@ module com.clinic_project.clinic_system {
     requires com.almasb.fxgl.all;
     requires org.apache.poi.ooxml;
     requires org.apache.pdfbox;
+    requires twilio;
 
     exports com.clinic_project.clinic_system;
 
